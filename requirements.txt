@@ -1,0 +1,7 @@
+Django
+django_environ
+gunicorn
+pip
+whitenoise
+psycopg2
+psycopg2-binary

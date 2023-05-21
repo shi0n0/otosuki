@@ -1,0 +1,27 @@
+databases:
+  - name: otosuki_db
+    region: singapore
+    plan: free
+    databaseName: otosuki_db
+    user: otosuki_user
+
+services:
+  - type: web
+    name: otosuki
+    env: python
+    region: singapore
+    buildCommand: './build.sh'
+    startCommand: 'gunicorn Multi_Translate_App.wsgi:application'
+    plan: free
+    branch: production
+    healthCheckPath: /
+    envVars:
+      - key: otosuki_db
+        fromDatabase:
+          name: otosuki_db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+    autoDeploy: true
