@@ -1,12 +1,95 @@
+<style>
+    /* styles.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #ff8800;
+}
+
+.toggle {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* メディアクエリを使用して、モバイルビューでハンバーガーメニューを表示 */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .toggle {
+    display: block;
+  }
+}
+</style>
+<script>
+const toggleButton = document.querySelector('.toggle');
+const menu = document.querySelector('.menu');
+
+toggleButton.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
+</script>
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>おとすき。</title>
+  <meta charset="UTF-8">
+  <title>先進的なヘッダー</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>おとすき。</h1>
+  <header>
+    <nav>
+      <div class="logo">ロゴ</div>
+      <ul class="menu">
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">サービス</a></li>
+        <li><a href="#">製品</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+      <div class="toggle"></div>
+    </nav>
+  </header>
+
+  <script src="script.js"></script>
 </body>
 </html>
